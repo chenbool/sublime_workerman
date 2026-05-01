@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[foreach (\$worker->connections as \$connection) {
+    \$connection->send('${1:broadcast message}');
+}]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wmbroadcast</tabTrigger>
+	<description>Workerman 广播</description>
+</snippet>

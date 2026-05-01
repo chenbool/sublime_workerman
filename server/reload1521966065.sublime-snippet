@@ -1,6 +1,9 @@
 <snippet>
-	<content><![CDATA[php start.php reload]]></content>
+	<content><![CDATA[\$worker->reloadable = true;
+\$worker->onWorkerReload = function () {
+    echo "Worker reloading\n";
+};]]></content>
 	<scope>source.php</scope>
-	<tabTrigger>wkreload</tabTrigger>
-	<description>Workerman 重载命令</description>
+	<tabTrigger>wmreload</tabTrigger>
+	<description>Workerman 热重载</description>
 </snippet>

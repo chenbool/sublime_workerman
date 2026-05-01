@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+use Workerman\Channel\Channel;
+
+\$worker = new Worker();
+\$worker->onWorkerStart = function () {
+    Channel\Client::subscribe('${1:channel_name}', function (\$data) {
+        var_dump(\$data);
+    });
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wmsubscribe</tabTrigger>
+	<description>Workerman 订阅消息</description>
+</snippet>
