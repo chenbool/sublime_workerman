@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[use Workerman\Protocols\Http\Client;
+
+\$worker = new Worker();
+\$worker->onMessage = function (\$connection, \$data) {
+    \$http = new Client('${1:tcp://127.0.0.1:8080}');
+    \$http->request('/api', [
+        'method' => 'GET',
+    ]);
+    \$http->onMessage = function (\$connection, \$data) use (\$http) {
+        \$http->close();
+        \$connection->send(\$data);
+    };
+    \$http->connect();
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkhttpclient</tabTrigger>
+	<description>Workerman HTTP客户端</description>
+</snippet>

@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[use Workerman\Protocols\Http\Client;
+
+\$worker = new Worker();
+\$worker->onWorkerStart = function () {
+    \$connection = new Client('${1:tcp://127.0.0.1:8080}');
+    \$connection->onConnect = function (\$connection) {
+        echo "Connected\n";
+    };
+    \$connection->onMessage = function (\$connection, \$data) {
+        echo "Received: \$data\n";
+    };
+    \$connection->connect();
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkclient</tabTrigger>
+	<description>Workerman TCP客户端</description>
+</snippet>

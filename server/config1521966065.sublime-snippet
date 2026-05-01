@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+Worker::\$pidFile = '${1:/tmp/workerman.pid}';
+Worker::\$logFile = '${2:/tmp/workerman.log}';
+Worker::\$stdoutFile = '${3:/tmp/stdout.log}';]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkconfig</tabTrigger>
+	<description>Workerman 配置文件</description>
+</snippet>

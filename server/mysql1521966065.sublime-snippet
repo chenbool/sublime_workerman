@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[use Workerman\MySQL\Connection;
+
+\$db = new Connection('${1:mysql://user:password@127.0.0.1:3306}', '${2:database}');
+
+\$result = \$db->query('SELECT * FROM ${3:users} WHERE id = ?', [${4:1}]);
+
+\$db->insert('${5:users}')->cols([
+    'name' => '${6:test}',
+    'email' => '${7:test@example.com}',
+])->save();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkmysql</tabTrigger>
+	<description>Workerman MySQL</description>
+</snippet>

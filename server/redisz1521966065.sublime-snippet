@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[use Workerman\Redis\Client;
+
+\$redis = new Client('${1:redis://127.0.0.1:6379}');
+
+\$redis->zadd('${2:sorted_set}', ${3:1}, '${4:member}');
+\$redis->zrange('${5:sorted_set}', 0, -1, true);]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkredisz</tabTrigger>
+	<description>Workerman Redis Sorted Set</description>
+</snippet>

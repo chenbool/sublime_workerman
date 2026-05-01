@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->count = ${2:4};
+
+\$worker->onMessage = function (\$connection, \$data) {
+    \$connection->send(\$data);
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkworker</tabTrigger>
+	<description>Workerman 多进程Worker</description>
+</snippet>

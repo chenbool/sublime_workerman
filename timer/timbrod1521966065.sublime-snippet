@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[Timer::add(${1:1}, function () {
+    foreach (\$this->worker->connections as \$connection) {
+        \$connection->send(date('Y-m-d H:i:s'));
+    }
+}, [], true);]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wktimbrod</tabTrigger>
+	<description>Workerman 定时广播</description>
+</snippet>

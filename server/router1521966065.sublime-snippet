@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+use Workerman\Protocols\Http\Router;
+
+\$router = new Router();
+\$router->get('/user/{id}', function (\$params) {
+    return new Response(200, [], 'User: ' . \$params['id']);
+});
+\$router->post('/user', function (\$params) {
+    return new Response(200, [], 'Created');
+});
+
+\$worker = new Worker('${1:http://0.0.0.0:8080}');
+\$worker->onMessage = function (\$connection, \$request) use (\$router) {
+    \$connection->send(\$router->dispatch(\$request));
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkrouter</tabTrigger>
+	<description>Workerman 路由</description>
+</snippet>

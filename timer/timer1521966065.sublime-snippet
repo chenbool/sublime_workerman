@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[use Workerman\Lib\Timer;
+
+Timer::add(${1:1}, function () {
+    echo "${2:Timer executed}\n";
+});]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wktimer</tabTrigger>
+	<description>Workerman 定时器</description>
+</snippet>

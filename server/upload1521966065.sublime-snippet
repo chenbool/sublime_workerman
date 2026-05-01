@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[use Workerman\Protocols\Http\Request;
+
+\$worker = new Worker('${1:http://0.0.0.0:8080}');
+
+\$worker->onMessage = function (\$connection, Request \$request) {
+    \$files = \$request->file();
+    if (\$files) {
+        \$file = \$files['${2:file}'];
+        \$content = file_get_contents(\$file['tmp_name']);
+        \$connection->send('Uploaded: ' . strlen(\$content) . ' bytes');
+    } else {
+        \$connection->send('No file');
+    }
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkfile</tabTrigger>
+	<description>Workerman 文件上传</description>
+</snippet>

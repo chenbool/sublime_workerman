@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+Timer::add(5, function () {
+    echo "Heartbeat sent\n";
+});]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wktimerbeat</tabTrigger>
+	<description>Workerman 定时心跳</description>
+</snippet>

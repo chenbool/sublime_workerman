@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->onMessage = function (\$connection, \$data) {
+    \$data = json_decode(\$data, true);
+    switch (\$data['type'] ?? '') {
+        case 'text':
+            \$connection->send('Received text');
+            break;
+        case 'binary':
+            \$connection->send('Received binary');
+            break;
+    }
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkwsmsg</tabTrigger>
+	<description>Workerman WebSocket 消息类型</description>
+</snippet>

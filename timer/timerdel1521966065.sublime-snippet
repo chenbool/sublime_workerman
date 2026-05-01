@@ -1,0 +1,6 @@
+<![CDATA[<snippet>
+	<content><![CDATA[Timer::del(\$timerId);]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wk timerdel</tabTrigger>
+	<description>Workerman 删除定时器</description>
+</snippet>]]>

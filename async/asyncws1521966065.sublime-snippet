@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+use Workerman\Connection\AsyncTcpConnection;
+
+\$worker = new Worker();
+\$worker->onMessage = function (\$connection, \$data) {
+    \$wsConnection = new AsyncTcpConnection('${1:ws://127.0.0.1:8080}');
+    \$wsConnection->onConnect = function (\$conn) use (\$data) {
+        \$conn->send(\$data);
+    };
+    \$wsConnection->onMessage = function (\$conn, \$data) use (\$connection) {
+        \$connection->send(\$data);
+        \$conn->close();
+    };
+    \$wsConnection->connect();
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkasyncws</tabTrigger>
+	<description>Workerman 异步WebSocket</description>
+</snippet>

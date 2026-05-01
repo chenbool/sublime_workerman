@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->onMessage = function (\$connection, \$data) {
+    if (\$connection->getRemoteIp() === '${2:127.0.0.1}') {
+        \$connection->send('Local access');
+    } else {
+        \$connection->send('Remote access');
+    }
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkremoteip</tabTrigger>
+	<description>Workerman 获取远程IP</description>
+</snippet>

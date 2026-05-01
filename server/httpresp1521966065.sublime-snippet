@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[use Workerman\Protocols\Http\Request;
+use Workerman\Protocols\Http\Response;
+
+\$worker = new Worker('${1:http://0.0.0.0:8080}');
+
+\$worker->onMessage = function (\$connection, Request \$request) {
+    \$response = new Response(200, [
+        'Content-Type' => 'application/json',
+        'Access-Control-Allow-Origin' => '*',
+    ], json_encode(['status' => 'ok']));
+    \$connection->send(\$response);
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkhttpresp</tabTrigger>
+	<description>Workerman HTTP响应</description>
+</snippet>

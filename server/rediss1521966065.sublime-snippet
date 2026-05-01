@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[use Workerman\Redis\Client;
+
+\$redis = new Client('${1:redis://127.0.0.1:6379}');
+
+\$redis->sadd('${2:set}', '${3:member}');
+\$redis->smembers('${4:set}');
+\$redis->sismember('${5:set}', '${6:member}');]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkrediss</tabTrigger>
+	<description>Workerman Redis Set</description>
+</snippet>

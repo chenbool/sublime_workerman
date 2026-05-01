@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[use Workerman\Redis\Client;
+
+\$redis = new Client('${1:redis://127.0.0.1:6379}');
+
+\$redis->set('${2:key}', '${3:value}');
+
+\$value = \$redis->get('${4:key}');
+
+\$redis->del('${5:key}');]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkredis</tabTrigger>
+	<description>Workerman Redis</description>
+</snippet>

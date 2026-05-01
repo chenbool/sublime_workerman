@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[use Workerman\MySQL\Connection;
+
+\$db = new Connection('${1:mysql://user:password@127.0.0.1:3306}', '${2:database}');
+
+\$result = \$db->query('UPDATE ${3:users} SET name = ? WHERE id = ?', ['${4:John}', ${5:1}]);]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkmysqlu</tabTrigger>
+	<description>Workerman MySQL 更新</description>
+</snippet>

@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[use Workerman\MySQL\Connection;
+
+\$db = new Connection('${1:mysql://user:password@127.0.0.1:3306}', '${2:database}');
+
+\$result = \$db->query('INSERT INTO ${3:users} (name, email) VALUES (?, ?)', ['${4:John}', '${5:john@example.com}']);
+
+\$id = \$db->lastInsertId();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkmysqli</tabTrigger>
+	<description>Workerman MySQL 插入</description>
+</snippet>

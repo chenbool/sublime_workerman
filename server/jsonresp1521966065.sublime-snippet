@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->onMessage = function (\$connection, \$data) {
+    \$connection->send(json_encode([
+        'type' => 'response',
+        'message' => 'Received: ' . \$data,
+        'timestamp' => time()
+    ]));
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkjsonresp</tabTrigger>
+	<description>Workerman JSON响应</description>
+</snippet>

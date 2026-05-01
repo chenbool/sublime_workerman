@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->onConnect = function (\$connection) {
+    echo "New connection\n";
+};
+
+\$worker->onMessage = function (\$connection, \$data) {
+    \$connection->send('${2:Hello ' . \$data}');
+};
+
+\$worker->onClose = function (\$connection) {
+    echo "Connection closed\n";
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkserver</tabTrigger>
+	<description>Workerman WebSocket服务器</description>
+</snippet>

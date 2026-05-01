@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[use Workerman\Redis\Client;
+
+\$redis = new Client('${1:redis://127.0.0.1:6379}');
+
+\$redis->hset('${2:hash}', '${3:field}', '${4:value}');
+\$redis->hget('${5:hash}', '${6:field}');
+\$redis->hgetall('${7:hash}');]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkredis</tabTrigger>
+	<description>Workerman Redis Hash</description>
+</snippet>

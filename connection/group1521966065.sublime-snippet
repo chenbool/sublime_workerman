@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+
+\$worker->groups = ['${2:group1}', '${3:group2}'];
+
+\$worker->onMessage = function (\$connection, \$data) {
+    foreach (\$connection->worker->connections as \$conn) {
+        if (isset(\$conn->group) && \$conn->group === '${4:group1}') {
+            \$conn->send(\$data);
+        }
+    }
+};
+
+Worker::runAll();]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkgroup</tabTrigger>
+	<description>Workerman 分组消息</description>
+</snippet>

@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+use Workerman\Connection\AsyncTcpConnection;
+
+\$worker = new Worker();
+\$worker->onMessage = function (\$connection, \$data) {
+    \$http = new AsyncTcpConnection('${1:tcp://127.0.0.1:8081}');
+    \$http->transport = 'ssl';
+    \$http->connect();
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wkssl</tabTrigger>
+	<description>Workerman SSL连接</description>
+</snippet>
