@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[use Workerman\Worker;
+
+\$worker = new Worker('${1:websocket://0.0.0.0:8080}');
+\$worker->onWebSocketConnect = function (\$connection, \$request) {
+    echo "New connection\n";
+};
+\$worker->onMessage = function (\$connection, \$data) {
+    \$connection->send('Hello ' . \$data);
+};]]></content>
+	<scope>source.php</scope>
+	<tabTrigger>wmwsserver</tabTrigger>
+	<description>Workerman WebSocket服务器</description>
+</snippet>
